@@ -78,8 +78,12 @@
 		$string.="<tr>";
 			$string.="<td>".($cont+1)."</td>";
 			$objuser->user_id = $all[$cont]["user_id"];
-			$username = $objuser->get("getname")[0]["username"];
-			$string.="<td>".$username."</td>";
+
+			if($_SESSION["role_id"] == 1){
+				$username = $objuser->get("getname")[0]["username"];
+				$string.="<td>".$username."</td>";
+			}
+			
 			$string.="<td>".$all[$cont]["name"]."</td>";
 			$string.="<td>".$all[$cont]["url"]."</td>";
 			$string.="<td>".$all[$cont]["blockdays"]."</td>";

@@ -76,3 +76,8 @@
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            alr("<?php print $operation; ?>",<?php print $error; ?>,"login");
+        });
+    </script>

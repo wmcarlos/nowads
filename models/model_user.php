@@ -65,6 +65,7 @@
 				case 'login':
 					$this->password = md5($this->password);
 					$sql = "select 
+								us.user_id,
 								us.role_id, 
 								rl.name as role,
 								us.username, 

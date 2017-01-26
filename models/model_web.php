@@ -47,7 +47,15 @@
 					$sql = "select * from na_web where web_id = $this->web_id";
 				break;
 				case 'all':
-					$sql = "select * from na_web order by name asc";
+					if(isset($_SESSION["role_id"]) and !empty($_SESSION["role_id"])){
+						if($_SESSION["role_id"] == 1){
+							$sql = "select * from na_web order by name asc";
+						}else{
+							$sql = "select * from na_web where user_id = ".$_SESSION['user_id']." order by name asc";
+						}
+					}else{
+						$sql = "select * from na_web order by name asc";
+					}
 				break;
 				case 'byname':
 					$sql = "select * from na_web where url = '$this->url' ";

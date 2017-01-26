@@ -10,6 +10,7 @@
 		case 'login':
 			$get = $objUser->get("login");
 			if( count($get) > 0 ){
+				$_SESSION["user_id"] = $get[0]["user_id"];
 				$_SESSION["role_id"] = $get[0]["role_id"];
 				$_SESSION["role"] = $get[0]["role"];
 				$_SESSION["first_name"] = $get[0]["first_name"];
@@ -34,6 +35,7 @@
 			}
 		break;
 		case 'logout':
+			unset($_SESSION["user_id"]);
 			unset($_SESSION["role_id"]);
 			unset($_SESSION["role"]);
 			unset($_SESSION["first_name"]);

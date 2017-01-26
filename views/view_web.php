@@ -1,7 +1,7 @@
 <?php 
   fromsession("in");
-  onlyaccess($_SESSION["access"], $_GET["v"]);
   getwidget();
+  onlyaccess($_SESSION["access"], $_GET["v"]);
 ?>
     <div class="content-wrapper">
         <div class="container">
@@ -22,7 +22,9 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <th>No.</th>
+                                    <?php if($_SESSION["role_id"] == 1){ ?>
                                     <th>User</th>
+                                    <?php } ?>
                                     <th>Name</th>
                                     <th>Url</th>
                                     <th>BlockDays</th>
@@ -51,7 +53,7 @@
 
                           <div class="modal-body">
                                 <input type="hidden" name="id" id="id" value="<?php print $id; ?>">
-                                
+                                <?php if($_SESSION["role_id"] == 1){ ?>
                                 <div class="form-group">
                                     <label for="txtuser_id"><span class="required-symbol">*</span> User: </label>
                                     <select class="form-control uppercase" name="txtuser_id" id="txtuser_id">
@@ -59,6 +61,9 @@
                                         <?php print $getusers; ?>
                                     </select>
                                 </div>
+                                <?php } else{ ?>
+                                    <input type="hidden" name="txtuser_id" id="txtuser_id" value="<?php print $_SESSION['user_id']; ?>">
+                                <?php } ?>
                                 <div class="form-group">
                                     <label for="txtname"><span class="required-symbol">*</span> Name: </label>
                                     <input type="text" class="form-control uppercase" name="txtname" id="txtname" value="<?php print $name; ?>">
