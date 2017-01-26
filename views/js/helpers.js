@@ -101,18 +101,21 @@ alr = function(op, e, v){
 			break;
 		}
 
-		bootbox.dialog({
-			title : "Alerta",
-			message : mes,
-			buttons : {
-				confirm : {
-					label : "SI",
-					ClassName : "btn-success",
-					callback : function(){
-						document.location.href="?v="+v;
+		if(mes){
+			bootbox.dialog({
+				title : "Alerta",
+				message : mes,
+				buttons : {
+					confirm : {
+						label : "SI",
+						ClassName : "btn-success",
+						callback : function(){
+							document.location.href="?v="+v;
+						}
 					}
 				}
-			}
-		});
+			});
+		}
+		
 	}
 }
