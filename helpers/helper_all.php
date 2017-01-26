@@ -81,9 +81,9 @@
 	function setactions($isactive,$id,$v){
 		$buttons = "";
 		if($isactive == "Y"){
-			$buttons.="<a href='?v=".$v."&id=".$id."&operation=load' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'></span> Modify</a> <a href='#' onclick=\"isactive('".$isactive."',".$id.",'".$v."')\" class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span> Desactivate</a>";
+			$buttons.="<a href='?v=".$v."&id=".$id."&operation=load' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'></span></a> <a href='#' onclick=\"isactive('".$isactive."',".$id.",'".$v."')\" class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></a>";
 		}else if ($isactive == "N"){
-			$buttons.="<a href='#' onclick=\"isactive('".$isactive."',".$id.",'".$v."')\" class='btn btn-success'><span class='glyphicon glyphicon-ok'></span> Activate</a>";
+			$buttons.="<a href='#' onclick=\"isactive('".$isactive."',".$id.",'".$v."')\" class='btn btn-success'><span class='glyphicon glyphicon-ok'></span></a>";
 		}
 		return $buttons;
 	}
@@ -120,14 +120,17 @@
 	function onlyaccess($data, $view){
 		$cont = 0;
 		if(count($data) > 0){
-			while($data[$cont]["id"] != 0){
-				if($data["access"]){
-
-				}
-				$cont++;
-			}
+			
 		}
 	}
 
-
+	function generateRandomString($length = 10) {
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
 ?>

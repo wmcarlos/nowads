@@ -56,7 +56,7 @@
 
                           <div class="modal-footer">
                                 <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-save"></span> Save</button>
-                                <button type="button" class="btn btn-danger" onclick="remove('role');"><span class="glyphicon glyphicon-floppy-remove"></span> Cancel</button>
+                                <button type="button" class="btn btn-danger" onclick="rmv('role');"><span class="glyphicon glyphicon-floppy-remove"></span> Cancel</button>
                           </div>
                     </form>
             </div>

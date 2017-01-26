@@ -56,6 +56,12 @@
 				case 'byname':
 					$sql = "select * from na_user where username = '$this->username'";
 				break;
+				case 'slt':
+					$sql = "select user_id as value, username as text from na_user order by username asc";
+				break;
+				case 'getname':
+					$sql = "select username from na_user where user_id = $this->user_id";
+				break;
 				case 'login':
 					$this->password = md5($this->password);
 					$sql = "select 

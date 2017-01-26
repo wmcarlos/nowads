@@ -8,7 +8,7 @@ load = function(oper, modalid){
     }
 }
 
-remove = function(v){
+rmv = function(v){
 	var view = v;
 	cfrm("¿Realmente Desea Cancelar la Operacion?",view);
 	
