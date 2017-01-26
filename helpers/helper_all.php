@@ -117,5 +117,17 @@
 		}
 	}
 
+	function onlyaccess($data, $view){
+		$cont = 0;
+		if(count($data) > 0){
+			while($data[$cont]["id"] != 0){
+				if($data["access"]){
+
+				}
+				$cont++;
+			}
+		}
+	}
+
 
 ?>
