@@ -1,5 +1,6 @@
 <?php 
   fromsession("in");
+  onlyaccess($_SESSION["access"], $_GET["v"]);
   getwidget();
 ?>
     <div class="content-wrapper">

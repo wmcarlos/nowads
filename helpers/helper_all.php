@@ -119,8 +119,18 @@
 
 	function onlyaccess($data, $view){
 		$cont = 0;
+		$yes = 0;
 		if(count($data) > 0){
+			while($data[$cont]["id"] != null){
+				if($data[$cont]["view"] == $view){
+					$yes++;
+				}
+				$cont++;
+			}
 			
+			if($yes == 0){
+				print("<script> document.location.href = '?v=dashboard'; </script>");
+			}
 		}
 	}
 
