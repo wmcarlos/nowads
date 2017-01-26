@@ -8,7 +8,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Free Responsive Admin Theme - ZONTAL</title>
+    <title>..:: NowAds ::..</title>
     <link href="views/css/bootstrap.css" rel="stylesheet" />
     <link href="views/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
 
                     <img src="views/img/logo.png" />
                 </a>

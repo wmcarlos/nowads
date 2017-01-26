@@ -12,19 +12,23 @@
                 <div class="col-md-6">
                    <h4> Login with facebook <strong> / </strong>Google :</h4>
                     <br />
-                    <a href="index.html" class="btn btn-social btn-facebook">
+                    <a href="index.php?v=login" class="btn btn-social btn-facebook">
                             <i class="fa fa-facebook"></i>&nbsp; Facebook Account</a>
                     &nbsp;OR&nbsp;
-                    <a href="index.html" class="btn btn-social btn-google">
+                    <a href="index.php?v=login" class="btn btn-social btn-google">
                             <i class="fa fa-google-plus"></i>&nbsp; Google Account</a>
                     <hr />
                     <form name="flogin" id="flogin" method="post" action="?v=login" autocomplete="off">
                          <h4> Or Login with <strong>Zontal Account  :</strong></h4>
                         <br />
-                         <label>Username : </label>
-                            <input type="text" name="txtusername" id="txtusername" class="form-control" />
-                            <label>Password :  </label>
-                            <input type="password" name="txtpassword" id="txtpassword" class="form-control" />
+                            <div class="form-group">
+                                <label for="txtusername">Username : </label>
+                                <input type="text" name="txtusername" id="txtusername" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="txtpassword">Password :  </label>
+                                <input type="password" name="txtpassword" id="txtpassword" class="form-control" />
+                            </div>
                             <input type="hidden" name="operation" id="operation" value="login">
                             <hr />
                             <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </button>&nbsp;
@@ -79,5 +83,26 @@
     <script type="text/javascript">
         $(document).ready(function(){
             alr("<?php print $operation; ?>",<?php print $error; ?>,"login");
+            $("#flogin").validate({
+                rules : {
+                    txtusername : {
+                        required: true
+                    },
+                    txtpassword : {
+                        required : true
+                    }
+                },
+                messages : {
+                    txtusername : {
+                        required : "<span class='error-message'>Campo Obligatorio</span>"
+                    },
+                    txtpassword : {
+                        required : "<span class='error-message'>Campo Obligatorio</span>"
+                    }
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
         });
     </script>
