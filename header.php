@@ -32,9 +32,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <strong>Email: </strong>info@yourdomain.com
+                    <strong>Email: </strong>cVargas@frontuari.com
                     &nbsp;&nbsp;
-                    <strong>Support: </strong>+90-897-678-44
+                    <strong>Support: </strong>+584160984343
                 </div>
 
             </div>
@@ -61,26 +61,19 @@
                     <ul class="nav">
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <a <?php if(isset($_SESSION["username"]) and !empty($_SESSION["username"])){ print 'class="dropdown-toggle" data-toggle="dropdown" '; }?> href="#" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
                             </a>
                             <div class="dropdown-menu dropdown-settings">
-                                <div class="media">
-                                    <a class="media-left" href="#">
-                                        <img src="views/img/64-64.jpg" alt="" class="img-rounded" />
-                                    </a>
+                                <div class="media" style="border-bottom:1px solid #ccc;">
                                     <div class="media-body">
-                                        <h4 class="media-heading">Jhon Deo Alex </h4>
-                                        <h5>Developer & Designer</h5>
-
+                                        <h4 class="media-heading"><?php print $_SESSION["first_name"]." ".$_SESSION["last_name"]; ?> </h4>
+                                        <h5><?php print $_SESSION["role"]; ?></h5>
                                     </div>
                                 </div>
-                                <hr />
-                                <h5><strong>Personal Bio : </strong></h5>
-                                Anim pariatur cliche reprehen derit.
-                                <hr />
-                                <a href="#" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="login.html" class="btn btn-danger btn-sm">Logout</a>
-
+                                <div style="margin-top:5px;">
+                                <a href="?v=profile" class="btn btn-info btn-sm">Full Profile</a>&nbsp; <a href="?v=login&operation=logout" class="btn btn-danger btn-sm">Logout</a>
+                                </div>
                             </div>
                         </li>
 

@@ -17,14 +17,17 @@
                     <a href="index.html" class="btn btn-social btn-google">
                             <i class="fa fa-google-plus"></i>&nbsp; Google Account</a>
                     <hr />
-                     <h4> Or Login with <strong>Zontal Account  :</strong></h4>
-                    <br />
-                     <label>Enter Email ID : </label>
-                        <input type="text" class="form-control" />
-                        <label>Enter Password :  </label>
-                        <input type="password" class="form-control" />
-                        <hr />
-                        <a href="index.html" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </a>&nbsp;
+                    <form name="flogin" id="flogin" method="post" action="?v=login" autocomplete="off">
+                         <h4> Or Login with <strong>Zontal Account  :</strong></h4>
+                        <br />
+                         <label>Username : </label>
+                            <input type="text" name="txtusername" id="txtusername" class="form-control" />
+                            <label>Password :  </label>
+                            <input type="password" name="txtpassword" id="txtpassword" class="form-control" />
+                            <input type="hidden" name="operation" id="operation" value="login">
+                            <hr />
+                            <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Log Me In </button>&nbsp;
+                        </form>
                 </div>
                 <div class="col-md-6">
                     <div class="alert alert-info">

@@ -99,6 +99,11 @@ alr = function(op, e, v){
 					mes = "Error al Tratar de Activar el Registro";
 				}
 			break;
+			case "login":
+				if(e == 1){
+					mes = "Usuario o Contrase&ntilde;a Incorrectos";
+				}
+			break;
 		}
 
 		if(mes){

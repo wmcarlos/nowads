@@ -42,6 +42,12 @@
 				case 'byname':
 					$sql = "select * from na_role where name = '$this->name' ";
 				break;
+				case 'slt':
+					$sql = "select role_id as value, name as text from na_role order by name asc";
+				break;
+				case 'getname':
+					$sql = "select name from na_role where role_id = $this->role_id";
+				break;
 			}
 
 			$this->setquery($sql);

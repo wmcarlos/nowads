@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	global $url;
 
 	function getheader(){
@@ -91,4 +92,22 @@
 		}
 		return $buttons;
 	}
+
+	function LoadSelect($data, $selected){
+		$string = "";
+		if(count($data) > 0){
+			$cont = 0;
+			while($data[$cont]["value"] != null){
+				if($data[$cont]["value"] == $selected){
+					$string.="<option value='".$data[$cont]["value"]."' selected='selected'>".$data[$cont]["text"]."</option>";
+				}else{
+					$string.="<option value='".$data[$cont]["value"]."'>".$data[$cont]["text"]."</option>";
+				}
+				$cont++;
+			}
+		}
+		return $string;
+	}
+
+
 ?>
