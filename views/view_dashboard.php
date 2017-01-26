@@ -1,4 +1,7 @@
-<?php getwidget(); ?>
+<?php 
+  fromsession("in");
+  getwidget();
+?>
 <div class="content-wrapper">
         <div class="container">
             <div class="row">

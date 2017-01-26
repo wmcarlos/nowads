@@ -69,13 +69,8 @@
 				include($cont);
 				include($view);
 			}else{
-				if($insession == "no"){
-					include(controllers() . "controller_login.php");
-					include(views() . "view_login.php");
-				}else if ($insession == "yes"){
-					include(controllers() . "controller_dashboard.php");
-					include(views() . "view_dashboard.php");
-				}
+				include(controllers() . "controller_login.php");
+				include(views() . "view_login.php");
 			}
 		}else{
 			include(controllers() . "controller_login.php");
@@ -107,6 +102,19 @@
 			}
 		}
 		return $string;
+	}
+
+	function fromsession($from){
+		$from = strtolower($from);
+		if($from == "out"){
+			if(isset($_SESSION["username"]) and !empty($_SESSION["username"])){
+				print("<script> document.location.href='?v=dashboard' </script>");
+			}
+		}else if($from == "in"){
+			if(!isset($_SESSION["username"]) and empty($_SESSION["username"])){
+				print("<script> document.location.href='?v=login' </script>");
+			}
+		}
 	}
 
 
