@@ -44,7 +44,7 @@
 
                           <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="txtname">Name: </label>
+                                        <label for="txtname"><span class="required-symbol">*</span> Name: </label>
                                         <input type="hidden" name="id" id="id" value="<?php print $id; ?>">
                                         <input type="text" name="txtname" value="<?php print $name; ?>" id="txtname" class="form-control uppercase">
                                         <input type="hidden" name="operation" id="operation" value="<?php print $operation; ?>">
@@ -65,5 +65,23 @@
     $(document).ready(function(){
         load("<?php print $operation?>","mrole");
         alr("<?php print $operation; ?>",<?php print $error; ?>,"role");
+
+        $("#frole").validate({
+            rules : {
+                txtname : {
+                    required: true,
+                    minlength: 4
+                }
+            },
+            messages : {
+                txtname : {
+                    required : "<span class='error-message'>Campo Obligatorio</span>",
+                    minlength : "<span class='error-message'>La cantidad de Caracteres debe ser al menos de 4</span>"
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
     });
 </script>

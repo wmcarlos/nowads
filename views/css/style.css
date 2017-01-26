@@ -317,3 +317,8 @@ footer {
 .uppercase{
     text-transform: uppercase;
 }
+
+span.required-symbol, span.error-message{
+    color:red;
+    font-weight: bold;
+}
