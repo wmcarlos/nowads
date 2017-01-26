@@ -85,9 +85,9 @@
 	function setactions($isactive,$id,$v){
 		$buttons = "";
 		if($isactive == "Y"){
-			$buttons.="<a href='?v=".$v."&id=".$id."&operation=load' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'></span> Modify</a> <a href='?v=".$v."&id=".$id."&operation=desactivate' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span> Desactivate</a>";
+			$buttons.="<a href='?v=".$v."&id=".$id."&operation=load' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'></span> Modify</a> <a href='#' onclick=\"isactive('".$isactive."',".$id.",'".$v."')\" class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span> Desactivate</a>";
 		}else if ($isactive == "N"){
-			$buttons.="<a href='?v=".$v."&id=".$id."&operation=activate' class='btn btn-success'><span class='glyphicon glyphicon-ok'></span> Activate</a>";
+			$buttons.="<a href='#' onclick=\"isactive('".$isactive."',".$id.",'".$v."')\" class='btn btn-success'><span class='glyphicon glyphicon-ok'></span> Activate</a>";
 		}
 		return $buttons;
 	}

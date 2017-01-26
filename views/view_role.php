@@ -64,5 +64,6 @@
 <script type="text/javascript">
     $(document).ready(function(){
         load("<?php print $operation?>","mrole");
+        alr("<?php print $operation; ?>",<?php print $error; ?>,"role");
     });
 </script>
