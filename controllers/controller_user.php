@@ -40,8 +40,6 @@
 				$phone = $arr[0]["phone"];
 				$password = $arr[0]["password"];
 				$isactive = $arr[0]["isactive"];
-			}else{
-
 			}
 		break;
 
