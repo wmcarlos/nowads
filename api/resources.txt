@@ -1,2 +1,0 @@
-http://ip-api.com/docs/api:json
-https://jqueryvalidation.org/validate/
