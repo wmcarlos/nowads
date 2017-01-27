@@ -56,6 +56,9 @@
 							from na_web 
 							where webkey = '$this->wk' and url = '$this->hs'";
 				break;
+				case "verifyip":
+					$sql = "select ip from na_click where ip = '$this->ip'";
+				break;
 			}
 
 			$this->setquery($sql);
