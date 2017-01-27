@@ -26,6 +26,7 @@
                                 <div class="form-group">
                                     <label for="txtusername">Username:</label>
                                     <input type="text" name="txtusername" class="form-control" id="txtusername" value="<?php print $username; ?>">
+                                    <input type="hidden" name="txtrealusername" class="form-control" id="txtrealusername" value="<?php print $username; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="txtemail">Email:</label>
@@ -42,6 +43,7 @@
                                 <div class="form-group">
                                     <label for="txtrepeatpassword">Repeat Password:</label>
                                     <input type="password" name="txtrepeatpassword" class="form-control" id="txtrepeatpassword">
+                                    <input type="hidden" name="operation" id="operation" value="change">
                                 </div>
                                 <button type="submit" name="btnsave" class="btn btn-success pull-right">Save</button>
                             </form>
@@ -52,3 +54,8 @@
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            alr("<?php print $operation; ?>",<?php print $error; ?>,"profile");
+        });
+    </script>

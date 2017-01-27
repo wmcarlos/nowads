@@ -2,6 +2,13 @@
 	require_once(models() . "model_user.php");
 	$objUser = new model_user();
 	$objUser->user_id = $_SESSION["user_id"];
+	$objUser->first_name = strtoupper($_POST["txtfirst_name"]);
+	$objUser->last_name = strtoupper($_POST["txtlast_name"]);
+	$objUser->username = $_POST["txtusername"];
+	$objUser->email = $_POST["txtemail"];
+	$objUser->phone = $_POST["txtphone"];
+	$objUser->password = $_POST["txtpassword"];
+	$operation = $_REQUEST["operation"];
 
 	switch ($operation) {
 		case "change":
