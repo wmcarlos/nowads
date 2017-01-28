@@ -57,7 +57,14 @@
 							where webkey = '$this->wk' and url = '$this->hs'";
 				break;
 				case "verifyip":
-					$sql = "select ip from na_click where ip = '$this->ip'";
+					$sql = "select 
+							nc.ip,
+							nc.created,
+							nw.blockdays
+							from na_click as nc
+							inner join na_web as nw on (nw.web_id = nc.web_id)
+							where nc.ip = '$this->ip' 
+							and nc.web_id = $this->web_id order by created desc limit 1";
 				break;
 			}
 
@@ -70,6 +77,13 @@
 			$this->free_result();
 			$this->close();
 			return $arr;
+		}
+
+		public function diffdays($d1){
+			$date1 = new DateTime($d1);
+			$date2 = new DateTime(date("Y-m-d H:m:s"));
+			$diff = $date1->diff($date2)->format("%a");
+			return $diff;
 		}
 	}
 ?>

@@ -8,9 +8,13 @@
 <body>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var ns = new nowads("4937c7c8bd9b5cd9339511cbb3d5fddd");
-
-			ns.verifyip();
+			var ns = new nowads("3a4e01924018a68a696b1ecdd2a9355a");
+			if(ns.verifyip()){
+				ns.addLocation();
+				alert("ip insertada con exito");
+			}else{
+				alert("Error al insertar la ip ver el log");
+			}
 		});
 	</script>
 </body>

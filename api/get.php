@@ -15,14 +15,19 @@
 
 	switch ($operation) {
 		case 'add':
-			$get = $objClick->get("verifyweb");
-			if( count($get) > 0 ){
-				$objClick->web_id = $get[0]["web_id"];
-				$get = $objClick->get("verifyip");
-				if( count($get) > 0 ){
+			$getvw = $objClick->get("verifyweb");
+
+			if( count($getvw) > 0 ){
+
+				$objClick->web_id = $getvw[0]["web_id"];
+				$getvi= $objClick->get("verifyip");
+				$f1 = $getvi[0]["created"];
+
+				if( $getvi[0]["blockdays"] > $objClick->diffdays($f1) ){
 					$request = Array(
 						"code" => 04,
-						"message" => "The ip Exists"
+						"message" => "The ip Exists",
+						"id" => $objClick->diffdays($f1)
 					);
 				}else{
 					if($objClick->add()){
@@ -43,15 +48,23 @@
 						"message" => "Not Authorized"
 				); 
 			}
+
 			print json_encode($request);
+
 		break;
 		case "verifyip":
-			$get = $objClick->get("verifyweb");
-			if( count($get) > 0 ){
-				$objClick->web_id = $get[0]["web_id"];
+			$getvw = $objClick->get("verifyweb");
+
+			if( count($getvw) > 0 ){
+
+				$objClick->web_id = $getvw[0]["web_id"];
+
 				if(isset($_GET["ip"]) and !empty($_GET["ip"])){
-					$get = $objClick->get("verifyip");
-					if( count($get) > 0 ){
+
+					$getvi = $objClick->get("verifyip");
+					$f1 = $getvi[0]["created"];
+
+					if( $getvi[0]["blockdays"] > $objClick->diffdays($f1) ){
 						$request = Array(
 							"code" => 04,
 							"message" => "The ip Exists"
@@ -85,16 +98,4 @@
 			print json_encode($request);
 		break;
 	}
-
-#path for api
-/*/api/get.php?
-operation=add&
-wk=77aac5ed024b43900c1992583cb23581&
-hs=www.librosdelprogramador.pw&
-ip=190.121.232.53&
-cc=VE&
-co=Venezuela&
-ci=Araure&
-la=9.5667&
-lo=-69.2167*/
 ?>

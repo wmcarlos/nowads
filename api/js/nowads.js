@@ -60,7 +60,7 @@ var nowads = function(wk){
 
 	this.verifyip = function(){
 		this.loader();
-		var result = "";
+		var result = false;
 		$.ajax({
 			dataType : "json",
 			async : false,
@@ -72,9 +72,15 @@ var nowads = function(wk){
 				ip : this.ip
 			},
 			success : function(data){
-				alert(data.code+" "+data.message);
+				if(data.code == 05){
+					result = true;
+				}else{
+					result = false;
+					console.log(data.code+" "+data.message);
+				}
 			}
 		});
+		return result;
 	}
 
 }
