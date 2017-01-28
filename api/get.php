@@ -24,29 +24,38 @@
 				$f1 = $getvi[0]["created"];
 
 				if( $getvi[0]["blockdays"] > $objClick->diffdays($f1) ){
+
 					$request = Array(
 						"code" => 04,
 						"message" => "The ip Exists",
 						"id" => $objClick->diffdays($f1)
 					);
+
 				}else{
+
 					if($objClick->add()){
+
 						$request = Array(
 							"code" => 01,
 							"message" => "Successfully"
 						); 
+
 					}else{
+
 						$request = Array(
 							"code" => 02,
 							"message" => "Connection Error"
 						); 
+
 					}
 				}
 			}else{
+
 				$request = Array(
 						"code" => 03,
 						"message" => "Not Authorized"
 				); 
+
 			}
 
 			print json_encode($request);
@@ -65,27 +74,35 @@
 					$f1 = $getvi[0]["created"];
 
 					if( $getvi[0]["blockdays"] > $objClick->diffdays($f1) ){
+
 						$request = Array(
 							"code" => 04,
 							"message" => "The ip Exists"
 						);
+
 					}else{
+
 						$request = Array(
 							"code" => 05,
 							"message" => "The ip not Exists"
 						);
+
 					}	
 				}else{
+
 					$request = Array(
 						"code" => 06,
 						"message" => "Specify an ip"
 					);
+
 				}				
 			}else{
+
 				$request = Array(
-						"code" => 03,
-						"message" => "Not Authorized"
+					"code" => 03,
+					"message" => "Not Authorized"
 				);
+				
 			}
 			print json_encode($request);
 		break;
