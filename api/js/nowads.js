@@ -23,7 +23,7 @@ var nowads = function(wk){
 		return result;
 	}
 
-	loader = function(){
+	this.loader = function(){
 		var json = getLocation();
 		this.ip = json.query;
 		this.cc = json.countryCode;
@@ -34,7 +34,7 @@ var nowads = function(wk){
 	}
 
 	this.addLocation = function(){
-		loader();
+		this.loader();
 		var result = "";
 		$.ajax({
 			dataType : "json",
@@ -59,7 +59,7 @@ var nowads = function(wk){
 	}
 
 	this.verifyip = function(){
-		loader();
+		this.loader();
 		var result = "";
 		$.ajax({
 			dataType : "json",
