@@ -10,7 +10,7 @@
 		private function connect(){
 			$this->server = "localhost";
 			$this->user = "root";
-			$this->password = "";
+			$this->password = "123456";
 			$this->db = "nowads";
 			$this->con = mysql_connect($this->server,$this->user,$this->password) or die ("Error al Intentar Conectar con el Servidor " . mysql_error());
 			mysql_select_db($this->db, $this->con) or die ("Error al Intentar Conectarse a la Base de Datos " . mysql_error());

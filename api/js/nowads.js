@@ -1,31 +1,17 @@
-function setlocation(getlocation){
-	var seturl = "http://ip-api.com/json";
-	var json = "";
+function getlocation(){
+	var result = "";
 	$.ajax({
 		dataType : "json",
-		url : seturl,
+		async : false,
+		url : "http://ip-api.com/json",
 		success : function(data){
-			getlocation(data);
+			result = data;
 		}
 	});
+	return result;
 }
 
-function verifyip(wk,ip,getip){
-	var hs = document.location.hostname;
-	$.ajax({
-		dataType : "json",
-		url : 'http://localhost/nowads/api/get.php',
-		data : {
-			operation : 'verifyip',
-			wk : wk,
-			hs : hs,
-			ip : ip
-		},
-		success : function(data){
-			getip(data);
-		}
-	});
-}
+
 
 function addlocation(wk,ip,cc,co,ci,la,lo,getaddlocation){
 	var hs = document.location.hostname;

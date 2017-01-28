@@ -18,16 +18,24 @@
 			$get = $objClick->get("verifyweb");
 			if( count($get) > 0 ){
 				$objClick->web_id = $get[0]["web_id"];
-				if($objClick->add()){
+				$get = $objClick->get("verifyip");
+				if( count($get) > 0 ){
 					$request = Array(
-						"code" => 01,
-						"message" => "Successfully"
-					); 
+						"code" => 04,
+						"message" => "The ip Exists"
+					);
 				}else{
-					$request = Array(
-						"code" => 02,
-						"message" => "Connection Error"
-					); 
+					if($objClick->add()){
+						$request = Array(
+							"code" => 01,
+							"message" => "Successfully"
+						); 
+					}else{
+						$request = Array(
+							"code" => 02,
+							"message" => "Connection Error"
+						); 
+					}
 				}
 			}else{
 				$request = Array(
@@ -35,7 +43,6 @@
 						"message" => "Not Authorized"
 				); 
 			}
-
 			print json_encode($request);
 		break;
 		case "verifyip":
