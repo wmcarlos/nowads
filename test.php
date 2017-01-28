@@ -8,8 +8,9 @@
 <body>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var json = getlocation();
-			alert(json.query);
+			var ns = new nowads("4937c7c8bd9b5cd9339511cbb3d5fddd");
+
+			ns.verifyip();
 		});
 	</script>
 </body>
