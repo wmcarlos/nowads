@@ -13,6 +13,7 @@
     <link href="views/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="views/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="views/plugins/DataTables-1.10.12/media/css/jquery.dataTables.min.css">
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,12 +21,17 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="views/js/jquery-1.11.1.js"></script>
-
     <script src="views/js/bootstrap.js"></script>
+    <script type="text/javascript" src="views/plugins/DataTables-1.10.12/media/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="views/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="views/js/additional-methods.min.js"></script>
     <script type="text/javascript" src="views/js/bootbox.min.js"></script>
     <script type="text/javascript" src="views/js/helpers.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+             $(".table").DataTable();
+        });
+    </script>
 </head>
 <body>
     <header>

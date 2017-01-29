@@ -51,7 +51,7 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var wk = "c7ee6d3b05f4c7d1b489ef4ed2d38b00";
+			var wk = "4937c7c8bd9b5cd9339511cbb3d5fddd";
 			var items = [
 				[1,'div1'],
 				[2,'div2'],
