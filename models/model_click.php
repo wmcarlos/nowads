@@ -75,6 +75,14 @@
 				case 'byweb':
 					$sql = "select * from na_web where web_id = $this->web_id order by created desc";
 				break;
+				case 'getclicksforchart':
+					$sql = "select 
+					date_format(created, '%d/%m/%Y') as day,
+					count(click_id) as clicks
+					from na_click 
+					where created between '2017-01-01' and '2017-01-31' 
+					group by date_format(created, '%d/%m/%Y')";
+				break;
 			}
 
 			$this->setquery($sql);

@@ -28,6 +28,8 @@
 					$string.="</tr>";
 					$cont++;
 				}
+				$gcfc = $objClick->get("getclicksforchart");
+				$jsondata = json_encode($gcfc);
 			}
 		break;
 		default:
@@ -53,8 +55,9 @@
 					$string.="</tr>";
 					$cont++;
 				}
+				$gcfc = $objClick->get("getclicksforchart");
+				$jsondata = json_encode($gcfc);
 			}
-			
 		break;
 	}
 ?>

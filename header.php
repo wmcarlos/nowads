@@ -14,6 +14,7 @@
     <!-- CUSTOM STYLE  -->
     <link href="views/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="views/plugins/DataTables-1.10.12/media/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="views/plugins/morris.js-0.5.1/morris.css">
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,6 +23,8 @@
     <![endif]-->
     <script src="views/js/jquery-1.11.1.js"></script>
     <script src="views/js/bootstrap.js"></script>
+    <script type="text/javascript" src="views/js/raphael-min.js"></script>
+    <script type="text/javascript" src="views/plugins/morris.js-0.5.1/morris.min.js"></script>
     <script type="text/javascript" src="views/plugins/DataTables-1.10.12/media/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="views/js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="views/js/additional-methods.min.js"></script>
