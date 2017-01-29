@@ -80,8 +80,18 @@
 					date_format(created, '%d/%m/%Y') as day,
 					count(click_id) as clicks
 					from na_click 
-					where created between '2017-01-01' and '2017-01-31' 
+					where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+					and LAST_DAY(NOW()) 
 					group by date_format(created, '%d/%m/%Y')";
+				break;
+				case 'ctrmostclick':
+					$sql = "select 
+						count(click_id) as value,
+						country as label
+						from na_click 
+						where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+						and LAST_DAY(NOW()) 
+						group by date_format(created, '%d/%m/%Y'), country";
 				break;
 			}
 

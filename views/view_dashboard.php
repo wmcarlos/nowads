@@ -59,32 +59,40 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4>Grafico de Clicks Diarios</h4>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4>Grafico de Clicks Diarios</h4>
+                      </div>
+                      <div class="panel-body">
+                          <div id="daybarchart" style="height:250px;"></div>
+                      </div>
                     </div>
-                    <div class="panel-body">
-                        <div id="daybarchart" style="height:250px;"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4>Paises con mas Clicks</h4>
+                      </div>
+                      <div class="panel-body">
+                          <div id="mosthclickforclick" style="height:250px;"></div>
+                      </div>
                     </div>
-                  </div>
                 </div>
             </div>
         </div>
 </div>
 <script type="text/javascript">
   new Morris.Bar({
-    // ID of the element in which to draw the chart.
     element: 'daybarchart',
-    // Chart data records -- each entry in this array corresponds to a point on
-    // the chart.
     data: <?php print $jsondata; ?>,
-    // The name of the data record attribute that contains x-values.
     xkey: 'day',
-    // A list of names of data record attributes that contain y-values.
     ykeys: ['clicks'],
-    // Labels for the ykeys -- will be displayed when you hover over the
-    // chart.
     labels: ['Clicks']
+  });
+
+  new Morris.Donut({
+    element: 'mosthclickforclick',
+    data : <?php print $jsondatagcmc; ?>
   });
 </script>

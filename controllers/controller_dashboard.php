@@ -30,6 +30,8 @@
 				}
 				$gcfc = $objClick->get("getclicksforchart");
 				$jsondata = json_encode($gcfc);
+				$gcmc = $objClick->get("ctrmostclick");
+				$jsondatagcmc = json_encode($gcmc);
 			}
 		break;
 		default:
@@ -57,6 +59,8 @@
 				}
 				$gcfc = $objClick->get("getclicksforchart");
 				$jsondata = json_encode($gcfc);
+				$gcmc = $objClick->get("ctrmostclick");
+				$jsondatagcmc = json_encode($gcmc);
 			}
 		break;
 	}
