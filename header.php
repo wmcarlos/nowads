@@ -32,9 +32,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <strong>Email: </strong>cVargas@frontuari.com
+                    <strong>Correo de Contacto: </strong>cVargas@frontuari.com
                     &nbsp;&nbsp;
-                    <strong>Support: </strong>+584160984343
+                    <strong>Telefono de Contacto: </strong>+584160984343
                 </div>
 
             </div>
