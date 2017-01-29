@@ -1,4 +1,5 @@
 <?php 
+	header('Access-Control-Allow-Origin: *');
 	require_once("../models/model_click.php");
 	$objClick = new model_click();
 

@@ -12,7 +12,8 @@ function getRamdonDiv(items){
 
 function setCode(wk, items){
 	var ns = new nowads(wk);
-	var dwimpa = "views/img/mega-btn.png";
+	var hostname = document.location.hostname;
+	var dwimpa = "http://localhost/nowads/views/img/mega-btn.png";
 	var rn = "";
 
 	if(ns.verifyip()){
@@ -59,7 +60,7 @@ function createButton(dwimpa,type, rd){
 	if(type == "neip"){
 		$("#"+rd).clone().attr("id","div-cloned").css({
 			"display":"none",
-			"opacity":"0.2"
+			"opacity":"0.0"
 		}).appendTo("#content-download");
 	}
 	//button
