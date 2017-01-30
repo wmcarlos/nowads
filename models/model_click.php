@@ -51,7 +51,7 @@
 					$sql = "select * from na_click where web_id = $this->web_id order by created desc";
 				break;
 				case 'getlastwebid':
-					$sql = "select web_id from na_web where user_id = ".$_SESSION["user_id"]." order by web_id desc";
+					$sql = "select web_id from na_web where user_id = ".$_SESSION["user_id"]." and isactive = 'Y' order by web_id desc";
 				break;
 				case "verifyweb":
 					$sql = "select 
@@ -70,7 +70,7 @@
 							and nc.web_id = $this->web_id order by created desc limit 1";
 				break;
 				case 'slw':
-					$sql = "select web_id as value, name as text from na_web order by name asc";
+					$sql = "select web_id as value, name as text from na_web where isactive = 'Y' order by name asc";
 				break;
 				case 'byweb':
 					$sql = "select * from na_web where web_id = $this->web_id order by created desc";
