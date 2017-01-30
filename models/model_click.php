@@ -81,7 +81,7 @@
 					count(click_id) as clicks
 					from na_click 
 					where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
-					and LAST_DAY(NOW()) 
+					and LAST_DAY(NOW()) and web_id = $this->web_id
 					group by date_format(created, '%d/%m/%Y')";
 				break;
 				case 'ctrmostclick':
@@ -90,8 +90,8 @@
 						country as label
 						from na_click 
 						where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
-						and LAST_DAY(NOW()) 
-						group by date_format(created, '%d/%m/%Y'), country";
+						and LAST_DAY(NOW()) and web_id = $this->web_id 
+						group by country";
 				break;
 			}
 
