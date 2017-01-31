@@ -80,7 +80,7 @@
 					date_format(created, '%d/%m/%Y') as day,
 					count(click_id) as clicks
 					from na_click 
-					where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+					where date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
 					and LAST_DAY(NOW()) and web_id = $this->web_id
 					group by date_format(created, '%d/%m/%Y')";
 				break;
@@ -89,7 +89,7 @@
 						count(click_id) as value,
 						country as label
 						from na_click 
-						where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+						where date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
 						and LAST_DAY(NOW()) and web_id = $this->web_id 
 						group by country";
 				break;
