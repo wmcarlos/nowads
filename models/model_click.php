@@ -48,7 +48,10 @@
 
 			switch ($t) {
 				case 'all':
-					$sql = "select * from na_click where web_id = $this->web_id order by created desc";
+					$sql = "select * from na_click 
+					where web_id = $this->web_id 
+					and (date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+					and LAST_DAY(NOW())) order by created desc";
 				break;
 				case 'getlastwebid':
 					$sql = "select web_id from na_web where user_id = ".$_SESSION["user_id"]." and isactive = 'Y' order by web_id desc";
