@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                               <label for="txtdaterange">Rango</label>
-                              <input type="text" id="txtdaterange" value="<?php if($daterange){ print $daterange; } ?>" class="form-control" name="txtdaterange">
+                              <input type="text" id="txtdaterange" readonly="readOnly" value="<?php if($daterange){ print $daterange; } ?>" class="form-control" name="txtdaterange">
                               <input type="hidden" id="operation" name="operation" value="forrange">
                             </div>
                             <button type="submit" class="btn btn-success">Ver Estadisticas</button>
