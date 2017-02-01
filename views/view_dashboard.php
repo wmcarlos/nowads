@@ -24,7 +24,7 @@
                 <div class="col-md-12">
                   <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h4>Bitacora de Clicks en Sitio Web</h4>
+                          <h4>Bitacora de Clicks en Sitio Web (Mes Actual)</h4>
                       </div>
                       <div class="panel-body">
                         <form name="fdashboard" class="form-inline" id="fdashboard" action="?v=dashboard" method="post">
@@ -62,7 +62,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h4>Grafico de Clicks Diarios</h4>
+                          <h4>Grafico de Clicks Diarios (Mes Actual)</h4>
                       </div>
                       <div class="panel-body">
                           <div id="daybarchart" style="height:250px;"></div>
@@ -72,7 +72,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h4>Paises con mas Clicks</h4>
+                          <h4>Paises con mas Clicks (Mes Actual)</h4>
                       </div>
                       <div class="panel-body">
                           <div id="mosthclickforclick" style="height:250px;"></div>
