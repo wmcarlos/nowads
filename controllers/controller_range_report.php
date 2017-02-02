@@ -38,7 +38,7 @@
 			}
 		break;
 		default:
-			$title = "Dia Actual";
+			$title = "Mes Actual";
 			#show all registers from table
 			if(isset($_SESSION["user_id"]) and !empty($_SESSION["user_id"])){
 				$vew = $objClick->get("getlastwebid");
