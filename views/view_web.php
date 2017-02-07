@@ -73,7 +73,7 @@
                                     <input type="text" value="<?php print $url; ?>" class="form-control" name="txturl" id="txturl">
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtblockdays"><span class="required-symbol">*</span> Bloack Days: </label>
+                                    <label for="txtblockdays"><span class="required-symbol">*</span> Block Days: </label>
                                     <input type="text" value="<?php print $blockdays; ?>" class="form-control" name="txtblockdays" id="txtblockdays">
                                 </div>
                                 <div class="form-group">
