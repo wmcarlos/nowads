@@ -104,6 +104,11 @@ alr = function(op, e, v){
 					mes = "Usuario o Contrase&ntilde;a Incorrectos";
 				}
 			break;
+			case "search":
+				if(e == 1){
+					mes = "Debes Seleccionar un Sitio Web";
+				}
+			break;
 		}
 
 		if(mes){

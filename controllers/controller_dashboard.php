@@ -8,30 +8,63 @@
 
 	switch ($operation) {
 		case "search":
-			$vew = $objClick->get("byweb");
-			if( count($vew) > 0 ){
-				$slw = $objClick->get("slw");
-				$getwebs = LoadSelect($slw, $objClick->web_id);
-				$all = $objClick->get("all");
-				$cont = 0;
-				$string = "";
-				while($all[$cont]["click_id"] != null){
-					$string.="<tr>";
-						$string.="<td>".($cont+1)."</td>";
-						$string.="<td>".$all[$cont]["ip"]."</td>";
-						$string.="<td>".$all[$cont]["country_code"]."</td>";
-						$string.="<td>".$all[$cont]["country"]."</td>";
-						$string.="<td>".$all[$cont]["city"]."</td>";
-						$string.="<td>".$all[$cont]["lat"]."</td>";
-						$string.="<td>".$all[$cont]["lon"]."</td>";
-						$string.="<td>".$all[$cont]["created"]."</td>";
-					$string.="</tr>";
-					$cont++;
+			if(isset($_POST["txtweb_id"]) and !empty($_POST["txtweb_id"])){
+				$vew = $objClick->get("byweb");
+				if( count($vew) > 0 ){
+					$slw = $objClick->get("slw");
+					$getwebs = LoadSelect($slw, $objClick->web_id);
+					$all = $objClick->get("all");
+					$cont = 0;
+					$string = "";
+					while($all[$cont]["click_id"] != null){
+						$string.="<tr>";
+							$string.="<td>".($cont+1)."</td>";
+							$string.="<td>".$all[$cont]["ip"]."</td>";
+							$string.="<td>".$all[$cont]["country_code"]."</td>";
+							$string.="<td>".$all[$cont]["country"]."</td>";
+							$string.="<td>".$all[$cont]["city"]."</td>";
+							$string.="<td>".$all[$cont]["lat"]."</td>";
+							$string.="<td>".$all[$cont]["lon"]."</td>";
+							$string.="<td>".$all[$cont]["created"]."</td>";
+						$string.="</tr>";
+						$cont++;
+					}
+					$gcfc = $objClick->get("getclicksforchart");
+					$jsondata = json_encode($gcfc);
+					$gcmc = $objClick->get("ctrmostclick");
+					$jsondatagcmc = json_encode($gcmc);
 				}
-				$gcfc = $objClick->get("getclicksforchart");
-				$jsondata = json_encode($gcfc);
-				$gcmc = $objClick->get("ctrmostclick");
-				$jsondatagcmc = json_encode($gcmc);
+			}else{
+				$error = 1;
+				#show all registers from table
+				if(isset($_SESSION["user_id"]) and !empty($_SESSION["user_id"])){
+					$vew = $objClick->get("getlastwebid");
+					if( count($vew) > 0 ){
+						$objClick->web_id = $vew[0]["web_id"];
+						$slw = $objClick->get("slw");
+						$getwebs = LoadSelect($slw, $objClick->web_id);
+						$all = $objClick->get("all");
+						$cont = 0;
+						$string = "";
+						while($all[$cont]["click_id"] != null){
+							$string.="<tr>";
+								$string.="<td>".($cont+1)."</td>";
+								$string.="<td>".$all[$cont]["ip"]."</td>";
+								$string.="<td>".$all[$cont]["country_code"]."</td>";
+								$string.="<td>".$all[$cont]["country"]."</td>";
+								$string.="<td>".$all[$cont]["city"]."</td>";
+								$string.="<td>".$all[$cont]["lat"]."</td>";
+								$string.="<td>".$all[$cont]["lon"]."</td>";
+								$string.="<td>".$all[$cont]["created"]."</td>";
+							$string.="</tr>";
+							$cont++;
+						}
+						$gcfc = $objClick->get("getclicksforchart");
+						$jsondata = json_encode($gcfc);
+						$gcmc = $objClick->get("ctrmostclick");
+						$jsondatagcmc = json_encode($gcmc);
+					}
+				}
 			}
 		break;
 		default:

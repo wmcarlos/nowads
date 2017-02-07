@@ -83,6 +83,10 @@
         </div>
 </div>
 <script type="text/javascript">
+  $(document).ready(function(){
+    alr("<?php print $operation; ?>",<?php print $error; ?>,"dashboard");
+  });
+
   new Morris.Bar({
     element: 'daybarchart',
     data: <?php print $jsondata; ?>,
