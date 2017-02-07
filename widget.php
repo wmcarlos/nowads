@@ -14,6 +14,7 @@
                                 <li><a href="?v=role">Roles</a></li>
                                 <li><a href="?v=user">Users</a></li>
                                 <li><a href="?v=web">Web Sites</a></li>
+                                <li><a href="?v=range_report">Range Report</a></li>
                             <?php
                                     break;
                                     
@@ -21,6 +22,7 @@
                             ?>
                                 <li><a href="?v=dashboard">Dashboard</a></li>
                                 <li><a href="?v=web">Web Sites</a></li>
+                                <li><a href="?v=range_report">Range Report</a></li>
                             <?php
                                     break;
                                 }

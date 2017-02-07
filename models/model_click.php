@@ -12,7 +12,8 @@
 				$lat,
 				$lon,
 				$wk,
-				$hs;
+				$hs,
+				$daterange;
 
 		public function __construct(){
 			$this->click_id = null;
@@ -26,6 +27,7 @@
 			$this->lon = null;
 			$this->wk = null;
 			$this->hs = null;
+			$this->daterange = null;
 		}
 
 		public function __set($atr, $val){
@@ -42,16 +44,37 @@
 				values ($this->web_id,'$this->ip','$this->country_code','$this->country','$this->city','$this->lat','$this->lon')");
 		}
 
+		function getdate($date){
+			$darr = explode("/",$date);
+			$year = trim($darr[2]);
+			$month = trim($darr[1]);
+			$day = trim($darr[0]);
+			$dstr = $year."-".$month."-".$day;
+			return trim($dstr);
+		}
+
 		public function get($t="only"){
 			$t = strtolower($t);
 			$sql = "";
 
 			switch ($t) {
 				case 'all':
-					$sql = "select * from na_click where web_id = $this->web_id order by created desc";
+					$sql = "select * from na_click 
+					where web_id = $this->web_id 
+					and (date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+					and LAST_DAY(NOW())) order by created desc";
+				break;
+				case 'allforrange':
+					$separator = explode("-", $this->daterange);
+					$datefrom = $this->getdate($separator[0]);
+					$dateto = $this->getdate($separator[1]);
+
+					$sql = "select * from na_click 
+					where web_id = $this->web_id 
+					and (date_format(created, '%Y-%m-%d') between '".$datefrom."' and '".$dateto."') order by created desc";
 				break;
 				case 'getlastwebid':
-					$sql = "select web_id from na_web where user_id = ".$_SESSION["user_id"]." order by web_id desc";
+					$sql = "select web_id from na_web where user_id = ".$_SESSION["user_id"]." and isactive = 'Y' order by web_id desc";
 				break;
 				case "verifyweb":
 					$sql = "select 
@@ -70,7 +93,7 @@
 							and nc.web_id = $this->web_id order by created desc limit 1";
 				break;
 				case 'slw':
-					$sql = "select web_id as value, name as text from na_web order by name asc";
+					$sql = "select web_id as value, name as text from na_web where isactive = 'Y' order by name asc";
 				break;
 				case 'byweb':
 					$sql = "select * from na_web where web_id = $this->web_id order by created desc";
@@ -80,7 +103,7 @@
 					date_format(created, '%d/%m/%Y') as day,
 					count(click_id) as clicks
 					from na_click 
-					where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+					where date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
 					and LAST_DAY(NOW()) and web_id = $this->web_id
 					group by date_format(created, '%d/%m/%Y')";
 				break;
@@ -89,8 +112,34 @@
 						count(click_id) as value,
 						country as label
 						from na_click 
-						where created between DATE_FORMAT(NOW() ,'%Y-%m-01') 
+						where date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
 						and LAST_DAY(NOW()) and web_id = $this->web_id 
+						group by country";
+				break;
+				case 'getclicksforchartrange':
+					$separator = explode("-", $this->daterange);
+					$datefrom = $this->getdate($separator[0]);
+					$dateto = $this->getdate($separator[1]);
+
+					$sql = "select 
+					date_format(created, '%d/%m/%Y') as day,
+					count(click_id) as clicks
+					from na_click 
+					where (date_format(created, '%Y-%m-%d') between '".$datefrom."' 
+					and '".$dateto."') and web_id = $this->web_id
+					group by date_format(created, '%d/%m/%Y') order by created asc";
+				break;
+				case 'ctrmostclickrange':
+					$separator = explode("-", $this->daterange);
+					$datefrom = $this->getdate($separator[0]);
+					$dateto = $this->getdate($separator[1]);
+
+					$sql = "select 
+						count(click_id) as value,
+						country as label
+						from na_click 
+						where (date_format(created, '%Y-%m-%d') between '".$datefrom."' 
+						and '".$dateto."') and web_id = $this->web_id 
 						group by country";
 				break;
 			}
