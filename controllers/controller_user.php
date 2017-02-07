@@ -12,6 +12,7 @@
 	$objUser->email = $_POST["txtemail"];
 	$objUser->phone = $_POST["txtphone"];
 	$objUser->password = $_POST["txtpassword"];
+	$objUser->realpassword = $_POST["txtrealpassword"];
 	$operation = $_REQUEST["operation"];
 	$error = 0;
 
@@ -44,12 +45,22 @@
 		break;
 
 		case "change":
-			$arr = $objUser->get("byname");
-			if(count($arr) > 0){
-				$error = 1;
+			if($_POST["txtusername"] == $_POST["txtrealusername"]){
+				$arr = $objUser->get("getname");
+				if(count($arr) > 0){
+					$objUser->change();
+				}else{
+					$error = 1;
+				}
 			}else{
-				$objUser->change();
+				$arr = $objUser->get("byname");
+				if(count($arr) > 0){
+					$error = 1;
+				}else{
+					$objUser->change();
+				}
 			}
+			
 		break;
 
 		case 'desactivate':

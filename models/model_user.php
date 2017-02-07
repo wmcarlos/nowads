@@ -12,6 +12,7 @@
 				$email,
 				$phone,
 				$password,
+				$realpassword,
 				$isactive;
 
 		public function __construct(){
@@ -25,6 +26,7 @@
 			$this->email = null;
 			$this->phone = null;
 			$this->password = null;
+			$this->realpassword = null;
 			$this->isactive = null;
 		}
 
@@ -90,6 +92,8 @@
 		}
 
 		public function change(){
+			if($this->password != $this->realpassword){ $this->password = MD5($this->password); }
+
 			return $this->setquery("update na_user 
 				set role_id = $this->role_id,
 				first_name = '$this->first_name',
@@ -97,7 +101,7 @@
 				username = '$this->username',
 				email = '$this->email',
 				phone = '$this->phone',
-				password = MD5('$this->password'),
+				password = '$this->password',
 				updated = Now() 
 				where user_id = $this->user_id");
 		}

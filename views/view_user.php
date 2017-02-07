@@ -70,6 +70,7 @@
                                     <div class="form-group">
                                         <label for="txtusername"><span class="required-symbol">*</span> Username: </label>
                                         <input type="text" name="txtusername" id="txtusername" value="<?php print $username; ?>" class="form-control uppercase"/>
+                                        <input type="hidden" name="txtrealusername" id="txtrealusername" value="<?php print $username; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="txtemail"><span class="required-symbol">*</span> Email: </label>
@@ -82,6 +83,7 @@
                                     <div class="form-group">
                                         <label for="txtpassword"><span class="required-symbol">*</span>Password: </label>
                                         <input type="password" name="txtpassword" id="txtpassword" value="<?php print $password; ?>" class="form-control uppercase"/>
+                                        <input type="hidden" id="txtrealpassword" name="txtrealpassword" value="<?php print $password; ?>">
                                     </div>
                                      <input type="hidden" name="operation" id="operation" value="<?php print $operation; ?>">
                           </div>
