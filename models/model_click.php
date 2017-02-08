@@ -93,7 +93,13 @@
 							and nc.web_id = $this->web_id order by created desc limit 1";
 				break;
 				case 'slw':
-					$sql = "select web_id as value, name as text from na_web where isactive = 'Y' order by name asc";
+					if(isset($_SESSION["role_id"]) and !empty($_SESSION["role_id"])){
+						if($_SESSION["role_id"] == 1){
+							$sql = "select web_id as value, name as text from na_web where isactive = 'Y' order by name asc";
+						}else if($_SESSION["role_id"] == 2){
+							$sql = "select web_id as value, name as text from na_web where isactive = 'Y' and user_id = ".$_SESSION["user_id"]." order by";
+						}
+					}
 				break;
 				case 'byweb':
 					$sql = "select * from na_web where web_id = $this->web_id order by created desc";
