@@ -51,14 +51,11 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var wk = "4937c7c8bd9b5cd9339511cbb3d5fddd";
+			var wk = "61dc52d8c356e2a2fc6d5d5abed55682";
 			var items = [
-				[1,'div1'],
-				[2,'div2'],
-				[3,'div3'],
-				[4,'div4']
+				[1,'div4']
 			];
-			setCode(wk, items);
+			setCode(wk, items, "ifr");
 		});
 	</script>
 </head>
@@ -67,7 +64,10 @@
 		<div id="header">
 			<div id="div4">
 				<div id="role4">
-				<a href="#"><img src="http://construyenpais.com/wp-content/uploads/2016/05/Facebook-e1464366421878.jpg"></a></div>
+					<script type="text/javascript" src="http://ylx-1.com/bnr.php?section=General&pub=761235&format=300x250&ga=g"></script>
+<noscript><a href="https://yllix.com/publishers/761235" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" border="0" /></a></noscript>
+<script type="text/javascript" src="http://ylx-4.com/layer.php?section=General&pub=761235&ga=g&show=1&fp"></script>
+				</div>
 			</div>
 		</div>
 		<div id="body">
