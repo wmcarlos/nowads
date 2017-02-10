@@ -21,24 +21,18 @@ function setCode(wk, items, tc="dv"){
 		createButton(dwimpa,"neip",rn);
 
 		if(tc == "ifr"){
-			alert("Entro Aqui");
-			var monitor = setInterval(function(){
-			    var elem = document.activeElement;
-			    if(elem && elem.tagName == 'IFRAME'){
-			    	ns.addLocation();
-			    	//$("#div-cloned").remove();
-			    	document.getElementById("div-cloned").parentNode.removeChild(document.getElementById("div-cloned"));
-			        clearInterval(monitor);
-			    }
-			}, 100);
+			var ant = setInterval(function(){
+				if(IframeActive()){
+					ns.addLocation();
+					removeAds(1);
+					clearInterval(ant);
+				}
+			},100);
 		}else if(tc == "dv"){
-
 			$("#div-cloned").click(function(){
 				ns.addLocation();
 				$("#div-cloned").remove();
 			});
-
-
 		}
 
 	}else{
@@ -88,4 +82,18 @@ function createButton(dwimpa,type, rd){
 	$("#download-url").attr("href",url);
 	var sethtml ="<img src='"+dwimpa+"'/>"
 	$("#download-url").html(sethtml);
+}
+
+function IframeActive(){
+	return $(document.activeElement).is('IFRAME') || $(document.activeElement).is('iframe');
+}
+
+function removeAds(i){
+	var valor = setInterval(function(){
+		if(i > 1){
+			$("#div-cloned").remove();
+			clearInterval(valor);
+		}
+		i++;
+	},200);
 }
