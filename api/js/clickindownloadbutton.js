@@ -13,7 +13,7 @@ function getRamdonDiv(items){
 function setCode(wk, items, tc="dv"){
 	var ns = new nowads(wk);
 	var hostname = document.location.hostname;
-	var dwimpa = "http://localhost/nowads/views/img/mega-btn.png";
+	var dwimpa = "http://localhost/views/img/mega-btn.png";
 	var rn = "";
 
 	if(ns.verifyip()){
@@ -34,7 +34,6 @@ function setCode(wk, items, tc="dv"){
 				$("#div-cloned").remove();
 			});
 		}
-
 	}else{
 		createButton(dwimpa,"eip",rn);
 	}
@@ -72,7 +71,7 @@ function createButton(dwimpa,type, rd){
 	if(type == "neip"){
 		$("#"+rd).clone().attr("id","div-cloned").css({
 			"display":"none",
-			"opacity":"0.5"
+			"opacity":"0.0"
 		}).appendTo("#content-download");
 	}
 	//button
