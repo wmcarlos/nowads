@@ -61,8 +61,8 @@
 				case 'all':
 					$sql = "select * from na_click 
 					where web_id = $this->web_id 
-					and (date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-01') 
-					and LAST_DAY(NOW())) order by created desc";
+					and (date_format(created, '%Y-%m-%d') between DATE_FORMAT(NOW() ,'%Y-%m-%d') 
+					and DATE_FORMAT(NOW() ,'%Y-%m-%d')) order by created desc";
 				break;
 				case 'allforrange':
 					$separator = explode("-", $this->daterange);
