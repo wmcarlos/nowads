@@ -24,7 +24,7 @@
                 <div class="col-md-12">
                   <div class="panel panel-default">
                       <div class="panel-heading">
-                          <h4>Bitacora de Clicks en Sitio Web (Mes Actual)</h4>
+                          <h4>Bitacora de Clicks en Sitio Web (Dia Actual)</h4>
                       </div>
                       <div class="panel-body">
                         <form name="fdashboard" class="form-inline" id="fdashboard" action="?v=dashboard" method="post">
